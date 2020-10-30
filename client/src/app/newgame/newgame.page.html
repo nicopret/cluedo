@@ -1,0 +1,28 @@
+
+<ion-content [fullscreen]="true">
+    
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>
+                Players
+            </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-list-header>Make sure the players is in the correct order</ion-list-header>
+                <ion-reorder-group (ionItemReorder)="onRenderItems($event)" disabled="false">  
+                    <ion-reorder *ngFor="let item of listItems">
+                        <ion-item>  
+                            <ion-label>  
+                              {{item}}  
+                            </ion-label>
+                          </ion-item>
+                    </ion-reorder>  
+                </ion-reorder-group>  
+            </ion-list>
+        </ion-card-content>
+        <ion-card-content>
+            form goes here
+        </ion-card-content>
+    </ion-card>
+</ion-content>
