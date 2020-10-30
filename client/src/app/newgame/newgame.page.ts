@@ -6,14 +6,23 @@ import { Component } from '@angular/core';
     templateUrl: './newgame.page.html'
 })
 export class NewGamePage {
-    listItems: any[] = [ 'You', 'One', 'Two', 'Three' ];
+    disableInput: boolean = false;
+    listItems: any[] = [ 'You' ];
+    player: string;
 
     constructor() {}
+
+    onInput(): any {
+        if (this.player.length > 0) {
+            this.listItems.push(this.player);
+            this.player = '';
+            this.disableInput = this.listItems.length > 5;
+        }
+    }
 
     onRenderItems(event) {
         const draggedItem = this.listItems.splice(event.detail.from, 1)[0];
         this.listItems.splice(event.detail.to, 0, draggedItem);
         event.detail.complete();
-        this.listItems.push('Four');
     }
 }
