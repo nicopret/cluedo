@@ -2,13 +2,54 @@
   <ion-toolbar>
     <ion-title>
       Cluedo
+      <ion-button class="right" (click)="showModal()">Start new game</ion-button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
+  <ion-grid fixed="true">
+    <ion-row>
+      <ion-col class="text">&nbsp;</ion-col>
+      <ion-col>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="heading" *ngFor="let item of players; let i = index">{{ i }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let card of deck.people">
+      <ion-col class="text">{{ card.key }}</ion-col>
+      <ion-col>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="content" *ngFor="let player of card.players">{{ player }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let card of deck.rooms">
+      <ion-col class="text">{{ card.key }}</ion-col>
+      <ion-col>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="content" *ngFor="let player of card.players">{{ player }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let card of deck.weapons">
+      <ion-col class="text">{{ card.key }}</ion-col>
+      <ion-col>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="content" *ngFor="let player of card.players">{{ player }}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <div id="container">
-    <ion-button [routerLink]="[ '/newgame' ]">Start new game</ion-button>
-  </div>
+  {{ deck | json }}
 </ion-content>

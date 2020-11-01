@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { GameService } from '../shared/game.services';
 
 @Component({
@@ -19,7 +20,7 @@ export class NewGamePage implements OnInit {
     suspectCards: any[] = [];
     weaponCards: any[] = [];
 
-    constructor(private gameService: GameService, private router: Router) {}
+    constructor(private gameService: GameService, private modalController: ModalController, private router: Router) {}
 
     compareWith(o1, o2) {
         return o1 && o2 ? o1 === o2 : false;
@@ -27,8 +28,11 @@ export class NewGamePage implements OnInit {
 
     createGame() {
         const playerCards = this.roomCards.concat(this.suspectCards, this.weaponCards);
-        this.gameService.createGame(this.cardsOutSelect, playerCards, this.playerList);
-        this.router.navigate([ '/home' ]);
+        this.modalController.dismiss({
+            cardsOut: this.cardsOutSelect,
+            playerCards,
+            playerList: this.playerList
+        });
     }
 
     ngOnInit() {
