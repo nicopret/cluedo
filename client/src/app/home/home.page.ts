@@ -88,7 +88,7 @@ export class HomePage implements OnInit {
     this.updateDeck(this.deck.people, card.key, data);
     this.updateDeck(this.deck.rooms, card.key, data);
     this.updateDeck(this.deck.weapons, card.key, data);
-    if (data.shared.length > 0) {
+    if (data.shared && data.shared.length > 0) {
       this.updateShared(data, card.key);
     }
   }

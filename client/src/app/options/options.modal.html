@@ -13,11 +13,12 @@
                 <ion-input type="text" [(ngModel)]="value" [disabled]="disableInput"></ion-input>
             </ion-item>
 
-            <ion-item (click)="toggleClaim()">
+            <ion-item style="cursor: pointer;" (click)="toggleClaim()">
                 <ion-label>Have card</ion-label>
                 <ion-toggle [(ngModel)]="claimed" [checked]="claimed ? true : false"></ion-toggle>
             </ion-item>
-            <ion-item (click)="toggleFree()">
+
+            <ion-item style="cursor: pointer;" (click)="toggleFree()">
                 <ion-label>Don't have card</ion-label>
                 <ion-toggle [(ngModel)]="free" [checked]="free ? true : false"></ion-toggle>
             </ion-item>
