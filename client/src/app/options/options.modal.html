@@ -1,0 +1,45 @@
+
+<ion-content [fullscreen]="true">
+
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>{{ name }}</ion-card-title>
+            <ion-card-subtitle>{{ card.key }}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+
+            <ion-item>
+                <ion-label position="floating"> Value </ion-label>
+                <ion-input type="text" [(ngModel)]="value" [disabled]="disableInput"></ion-input>
+            </ion-item>
+
+            <ion-item (click)="toggleClaim()">
+                <ion-label>Have card</ion-label>
+                <ion-toggle [(ngModel)]="claimed" [checked]="claimed ? true : false"></ion-toggle>
+            </ion-item>
+            <ion-item (click)="toggleFree()">
+                <ion-label>Don't have card</ion-label>
+                <ion-toggle [(ngModel)]="free" [checked]="free ? true : false"></ion-toggle>
+            </ion-item>
+
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-content>
+            <ion-label>Share clues with</ion-label>
+            <ion-select [(ngModel)]="sharedCards" multiple="true" cancelText="Cancel" okText="Confirm">
+                <ion-select-option *ngFor="let item of availableCards">{{ item }}</ion-select-option>
+            </ion-select>        
+        </ion-card-content>
+    </ion-card>
+
+    <ion-button (click)="clear()">clear</ion-button>
+    <ion-button (click)="close()">close</ion-button>
+
+</ion-content>
+
+
+
+
+

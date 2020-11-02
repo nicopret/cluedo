@@ -17,12 +17,14 @@ $RECYCLE.BIN/
 log.txt
 npm-debug.log*
 
+/client/.gradle
 /client/.idea
 /client/.ionic
 /client/.sass-cache
 /client/.sourcemaps
 /client/.versions
 /client/.vscode
+/client/android
 /client/coverage
 /client/dist
 /client/node_modules

@@ -7,49 +7,20 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="padding-left: 8px; padding-right: 8px;">
   <ion-grid fixed="true">
     <ion-row>
       <ion-col class="text">&nbsp;</ion-col>
-      <ion-col>
-        <ion-grid>
-          <ion-row>
-            <ion-col class="heading" *ngFor="let item of players; let i = index">{{ i }}</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-col>
-    </ion-row>
-    <ion-row *ngFor="let card of deck.people">
-      <ion-col class="text">{{ card.key }}</ion-col>
-      <ion-col>
-        <ion-grid>
-          <ion-row>
-            <ion-col class="content" *ngFor="let player of card.players">{{ player }}</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-col>
-    </ion-row>
-    <ion-row *ngFor="let card of deck.rooms">
-      <ion-col class="text">{{ card.key }}</ion-col>
-      <ion-col>
-        <ion-grid>
-          <ion-row>
-            <ion-col class="content" *ngFor="let player of card.players">{{ player }}</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-col>
-    </ion-row>
-    <ion-row *ngFor="let card of deck.weapons">
-      <ion-col class="text">{{ card.key }}</ion-col>
-      <ion-col>
-        <ion-grid>
-          <ion-row>
-            <ion-col class="content" *ngFor="let player of card.players">{{ player }}</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-col>
+      <ion-col class="heading" *ngFor="let item of players; let i = index">{{ i }}</ion-col>
     </ion-row>
   </ion-grid>
-
-  {{ deck | json }}
+  <ion-grid fixed="true" style="border-top: 1px solid #ccc; margin-top: 8px; padding: 0">
+    <app-card *ngFor="let card of deck.people" [card]="card" (updatePlayer)="updatePlayer($event)" (updateStatus)="updateStatus($event)"></app-card>
+  </ion-grid>
+  <ion-grid fixed="true" style="border-top: 1px solid #ccc; margin-top: 16px; padding: 0">
+    <app-card *ngFor="let card of deck.rooms" [card]="card" (updatePlayer)="updatePlayer($event)" (updateStatus)="updateStatus($event)"></app-card>
+  </ion-grid>
+  <ion-grid fixed="true" style="border-top: 1px solid #ccc; margin-top: 16px; padding: 0">
+    <app-card *ngFor="let card of deck.weapons" [card]="card" (updatePlayer)="updatePlayer($event)" (updateStatus)="updateStatus($event)"></app-card>
+  </ion-grid>
 </ion-content>

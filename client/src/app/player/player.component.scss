@@ -1,0 +1,23 @@
+
+ion-col {
+    border-left: 1px solid #ccc;
+    cursor: pointer;
+    display: block;
+    height: 40px;
+    max-width: 40px;
+    margin: 0;
+    min-width: 40px;
+    padding: 0;
+    text-align: center;
+    width: 40px;
+}
+
+ion-text {
+    font-size: 12px;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+.claimed {
+    background-color: black;
+}

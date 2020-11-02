@@ -7,11 +7,10 @@ import { NewGamePage } from './newgame/newgame.page';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/newgame',
+    redirectTo: '/home',
     pathMatch: 'full'
   },
-  { path: 'home', component: HomePage },
-  { path: 'newgame', component: NewGamePage }
+  { path: 'home', component: HomePage }
 ];
 
 @NgModule({

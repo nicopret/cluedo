@@ -35,8 +35,13 @@
 
 .heading {
   font-weight: bold;
+  height: 40px;
+  line-height: 40px;
+  max-width: 40px;
+  min-width: 40px;
   text-align: center;
   vertical-align: middle;
+  width: 40px;
 }
 
 .right {
