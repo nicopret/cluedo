@@ -1,0 +1,26 @@
+
+ion-col {
+    height: 40px;;
+}
+
+ion-row {
+    background-color: #fffff7;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+ion-text {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 40px;
+    vertical-align: middle;
+}
+
+.claimed {
+    background-color: #fce5cd;
+}
+
+.suspect {
+    background-color: #b6d7a8;
+}

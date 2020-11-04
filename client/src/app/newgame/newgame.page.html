@@ -11,7 +11,7 @@
             <ion-list>
                 <ion-list-header>Make sure the players is in the correct order</ion-list-header>
                 <ion-reorder-group (ionItemReorder)="onRenderItems($event)" disabled="false">  
-                    <ion-reorder *ngFor="let item of listItems">
+                    <ion-reorder *ngFor="let item of playerList">
                         <ion-item>  
                             <ion-label>  
                               {{item}}  
@@ -22,7 +22,51 @@
             </ion-list>
         </ion-card-content>
         <ion-card-content>
-            form goes here
+            <ion-item>
+                <ion-label position="floating"> Player </ion-label>
+                <ion-input type="text" [(ngModel)]="player" (keyup.enter)="onInput()" [disabled]="disableInput"></ion-input>
+            </ion-item>
         </ion-card-content>
     </ion-card>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>
+                Your cards
+            </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-item>
+                <ion-label>Suspects</ion-label>
+                <ion-select [(ngModel)]="suspectCards" multiple="true" cancelText="Cancel" okText="Confirm">
+                    <ion-select-option *ngFor="let card of cards.people">{{ card }}</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>Rooms</ion-label>
+                <ion-select [(ngModel)]="roomCards" multiple="true" cancelText="Cancel" okText="Confirm">
+                    <ion-select-option *ngFor="let card of cards.rooms">{{ card }}</ion-select-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label>Weapons</ion-label>
+                <ion-select [(ngModel)]="weaponCards" multiple="true" cancelText="Cancel" okText="Confirm">
+                    <ion-select-option *ngFor="let card of cards.weapons">{{ card }}</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title>
+                Cards out of play
+            </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-label>Select cards</ion-label>
+            <ion-select [(ngModel)]="cardsOutSelect" multiple="true" cancelText="Cancel" okText="Confirm">
+                <ion-select-option *ngFor="let card of cardsOut">{{ card }}</ion-select-option>
+            </ion-select>
+        </ion-card-content>
+    </ion-card>
+    <ion-button color="primary" expand="block" (click)="createGame()">Create</ion-button>
 </ion-content>

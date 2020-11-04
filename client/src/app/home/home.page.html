@@ -2,13 +2,50 @@
   <ion-toolbar>
     <ion-title>
       Cluedo
+      <ion-button class="right" (click)="showModal()">Start new game</ion-button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-grid fixed="true" slot="fixed" style="display: contents; height: 40px" *ngIf="players.length > 0">
+  <ion-row>
+    <ion-col class="text">&nbsp;</ion-col>
+    <ion-col class="heading" *ngFor="let item of players; let i = index">{{ i }}</ion-col>
+  </ion-row>
+</ion-grid>
 
-  <div id="container">
-    <ion-button (click)="newGame()">Start new game</ion-button>
-  </div>
+<ion-content style="padding-left: 8px; padding-right: 8px;" *ngIf="players.length > 0">
+  <ion-text style="color: #020288; font-size: 16px; font-weight: bold; margin-left: 8px; margin-top: 12px;">Suspects:</ion-text>
+  <ion-grid fixed="true" style="border-top: 1px solid #ccc; margin-bottom: 16px; margin-top: 4px; padding: 0">
+    <app-card *ngFor="let card of deck.people" [card]="card" (updatePlayer)="updatePlayer($event)" (updateStatus)="updateStatus($event)"></app-card>
+  </ion-grid>
+
+  <ion-text style="color: #020288; font-size: 16px; font-weight: bold; margin-left: 8px; margin-top: 12px;">Rooms:</ion-text>
+  <ion-grid fixed="true" style="border-top: 1px solid #ccc; margin-bottom: 16px; margin-top: 4px; padding: 0">
+    <app-card *ngFor="let card of deck.rooms" [card]="card" (updatePlayer)="updatePlayer($event)" (updateStatus)="updateStatus($event)"></app-card>
+  </ion-grid>
+
+  <ion-text style="color: #020288; font-size: 16px; font-weight: bold; margin-left: 8px; margin-top: 12px;">Weapons:</ion-text>
+  <ion-grid fixed="true" style="border-top: 1px solid #ccc; margin-bottom: 16px; margin-top: 4px; padding: 0">
+    <app-card *ngFor="let card of deck.weapons" [card]="card" (updatePlayer)="updatePlayer($event)" (updateStatus)="updateStatus($event)"></app-card>
+  </ion-grid>
+
+  <ion-text style="color: #020288; font-size: 16px; font-weight: bold; margin-left: 8px; margin-top: 24px;">Legend:</ion-text>
+  <ion-grid fixed="true" style="border-top: 1px solid #ccc; margin-top: 4px; padding: 0">
+    <ion-row style="border-bottom: 1px solid #ccc;">
+      <ion-col size="1" style="background-color: #000000; margin: 4px">&nbsp;</ion-col>
+      <ion-col style="background-color: #fffffb; line-height: 36px; vertical-align: middle;">Card belongs to player</ion-col>
+    </ion-row>
+    <ion-row style="border-bottom: 1px solid #ccc;">
+      <ion-col size="1" style="background-color: #fce5cd; margin: 4px">&nbsp;</ion-col>
+      <ion-col style="background-color: #fffffb; line-height: 36px; vertical-align: middle;">Card out of play or claimed</ion-col>
+    </ion-row>
+    <ion-row style="border-bottom: 1px solid #ccc;">
+      <ion-col size="1" style="background-color: #b6d7a8; margin: 4px">&nbsp;</ion-col>
+      <ion-col style="background-color: #fffffb; line-height: 36px; vertical-align: middle;">Mystery card identified</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid style="height: 24px;"></ion-grid>
 </ion-content>
+
