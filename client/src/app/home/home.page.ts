@@ -42,6 +42,8 @@ export class HomePage implements OnInit {
     this.deck.people = this.createGroup(cards.people, input.cardsOut, input.playerList.length, you, input.playerCards);
     this.deck.rooms = this.createGroup(cards.rooms, input.cardsOut, input.playerList.length, you, input.playerCards);
     this.deck.weapons = this.createGroup(cards.weapons, input.cardsOut, input.playerList.length, you, input.playerCards);
+    console.log(this.deck);
+    console.log(this.players);
   }
 
   createGroup = (cards, cardsOut, playerCount, you, ownCards) => {
@@ -73,6 +75,11 @@ export class HomePage implements OnInit {
     if (item) {
       item.claimed = input.claimed;
       item.players[input.player] = input.value;
+    }
+    if (item && input.value === 'c') {
+      item.players.forEach((value, index) => {
+        item.players[index] = value !== 'c' ? '' : value;
+      });
     }
   }
 
