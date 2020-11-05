@@ -1,4 +1,4 @@
 
-<ion-col [ngClass]="{'shadow': shadow, 'claimed': player === 'c'}" (click)="update()">
+<ion-col [ngClass]="{'owner': owner, 'claimed': claimed, 'complete': complete, 'shadow': shadow}" (click)="update()">
     <ion-text>{{ player }}</ion-text>
 </ion-col>

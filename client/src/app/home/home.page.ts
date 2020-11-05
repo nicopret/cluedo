@@ -12,7 +12,9 @@ import { OptionsModal } from '../options/options.modal';
 })
 export class HomePage implements OnInit {
 
+  cardCount: number = 0;
   deck: any = {};
+  playerList: any[] = [];
   players: any[] = [];
 
   constructor(private gameService: GameService, private modalController: ModalController) {
@@ -42,8 +44,14 @@ export class HomePage implements OnInit {
     this.deck.people = this.createGroup(cards.people, input.cardsOut, input.playerList.length, you, input.playerCards);
     this.deck.rooms = this.createGroup(cards.rooms, input.cardsOut, input.playerList.length, you, input.playerCards);
     this.deck.weapons = this.createGroup(cards.weapons, input.cardsOut, input.playerList.length, you, input.playerCards);
-    console.log(this.deck);
-    console.log(this.players);
+    this.playerList = this.players.map((name, index) => {
+      return {
+        display: index, name, sum: this.deck.people.concat(this.deck.rooms, this.deck.weapons).reduce((sum, item) => {
+          return item.players[index] === 'c' ? sum + 1 : sum;
+        }, 0)
+      }
+    });
+    this.cardCount = this.playerList[you].sum;
   }
 
   createGroup = (cards, cardsOut, playerCount, you, ownCards) => {
