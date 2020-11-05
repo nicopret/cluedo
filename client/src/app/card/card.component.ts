@@ -6,7 +6,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     templateUrl: './card.component.html'
 })
 export class CardComponent {
+    @Input() cardCount;
     @Input() card;
+    @Input() playerList;
 
     @Output() updatePlayer = new EventEmitter();
     @Output() updateStatus = new EventEmitter();

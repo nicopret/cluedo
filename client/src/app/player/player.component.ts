@@ -6,18 +6,35 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angu
     templateUrl: './player.component.html'
 })
 export class PlayerComponent implements OnInit, OnChanges {
+    @Input() claimed = false;
+    @Input() complete = false;
     @Input() index;
     @Input() player;
+
     @Output() updatePlayer = new EventEmitter();
 
-    shadow;
+    owner: boolean = false;
+    shadow: boolean = false;
+
+    calculateDisplay() {
+        this.owner = this.player === 'c';
+        if (this.owner) {
+            this.complete = false;            
+        }
+        if (this.complete) {
+            this.claimed = false;
+        }
+        if (!this.claimed && !this.complete && !this.owner) {
+            this.shadow = this.index % 2 === 0
+        }
+    }
 
     ngOnChanges() {
-        this.shadow = this.index % 2 === 0 && this.player !== 'c';
+        this.calculateDisplay();
     }
 
     ngOnInit() {
-        this.shadow = this.index % 2 === 0 && this.player !== 'c';
+        this.calculateDisplay();
     }
 
     update() {
