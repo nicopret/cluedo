@@ -21,11 +21,13 @@ export class PlayerComponent implements OnInit, OnChanges {
         if (this.owner) {
             this.complete = false;            
         }
+        
         if (this.complete) {
             this.claimed = false;
         }
+
         if (!this.claimed && !this.complete && !this.owner) {
-            this.shadow = this.index % 2 === 0
+//            this.shadow = this.index % 2 === 0
         }
     }
 

@@ -1,7 +1,7 @@
 
 
-<ion-row [ngClass]="{'claimed': card.claimed, 'suspect': card.status}">
-    <ion-col (click)="status()">
+<ion-row [ngClass]="{'claimed': card.claimed, 'suspect': card.suspect}">
+    <ion-col style="cursor: pointer;" (click)="status()">
         <ion-text>{{ card.key }}</ion-text>
     </ion-col>
     <app-player *ngFor="let player of card.players; index as i" [claimed]="card.claimed" [complete]="playerList[i].sum === cardCount" [index]="i" [player]="player" (updatePlayer)="update($event)"></app-player>

@@ -1,7 +1,7 @@
 
 <ion-content [fullscreen]="true">
     
-    <ion-card>
+    <ion-card style="background-color: #fffff7; margin-bottom: 16px;">
         <ion-card-header>
             <ion-card-title>
                 Players
@@ -21,14 +21,14 @@
                 </ion-reorder-group>  
             </ion-list>
         </ion-card-content>
-        <ion-card-content>
+        <ion-card-content *ngIf="enableInput">
             <ion-item>
                 <ion-label position="floating"> Player </ion-label>
-                <ion-input type="text" [(ngModel)]="player" (keyup.enter)="onInput()" [disabled]="disableInput"></ion-input>
+                <ion-input type="text" [(ngModel)]="player" (keyup.enter)="onInput()"></ion-input>
             </ion-item>
         </ion-card-content>
     </ion-card>
-    <ion-card>
+    <ion-card style="background-color: #fffff7; margin-bottom: 16px;">
         <ion-card-header>
             <ion-card-title>
                 Your cards
@@ -55,7 +55,7 @@
             </ion-item>
         </ion-card-content>
     </ion-card>
-    <ion-card>
+    <ion-card style="background-color: #fffff7; margin-bottom: 16px;">
         <ion-card-header>
             <ion-card-title>
                 Cards out of play
@@ -68,5 +68,7 @@
             </ion-select>
         </ion-card-content>
     </ion-card>
-    <ion-button color="primary" expand="block" (click)="createGame()">Create</ion-button>
+
+    <ion-button color="success" expand="block" (click)="createGame()">Create</ion-button>
+    <ion-button color="danger" expand="block" (click)="cancel()">Cancel</ion-button>
 </ion-content>

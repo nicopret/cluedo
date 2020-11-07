@@ -10,7 +10,7 @@ import { GameService } from '../shared/game.services';
     templateUrl: './newgame.page.html'
 })
 export class NewGamePage implements OnInit {
-    disableInput: boolean = false;
+    enableInput: boolean = true;
     cards: any;
     cardsOut: any[];
     cardsOutSelect: any[] = [];
@@ -22,6 +22,10 @@ export class NewGamePage implements OnInit {
 
     constructor(private gameService: GameService, private modalController: ModalController, private router: Router) {}
 
+    cancel() {
+        this.modalController.dismiss();
+    }
+    
     compareWith(o1, o2) {
         return o1 && o2 ? o1 === o2 : false;
     }
@@ -44,7 +48,7 @@ export class NewGamePage implements OnInit {
         if (this.player.length > 0) {
             this.playerList.push(this.player);
             this.player = '';
-            this.disableInput = this.playerList.length > 5;
+            this.enableInput = this.playerList.length < 6;
         }
     }
 
