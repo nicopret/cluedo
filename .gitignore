@@ -27,6 +27,7 @@ npm-debug.log*
 /client/android
 /client/coverage
 /client/dist
+/client/MyApplication
 /client/node_modules
 /client/platforms
 /client/plugins
