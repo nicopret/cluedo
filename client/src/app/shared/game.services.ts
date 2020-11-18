@@ -1,18 +1,27 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
+import { Storage } from '@ionic/storage';
+
 import cardData from '../../assets/data.json';
 
 @Injectable()
 export class GameService {
+
+    data;
     game: any = {};
 
     cards = new Subject();
 
-    constructor() {
-        cardData.people.sort();
-        cardData.rooms.sort();
-        cardData.weapons.sort();
+    constructor(private storage: Storage) {
+        this.storage.get('board').then(value => {
+            if (!value) {
+                this.data = cardData;
+                this.storage.set('board', cardData);
+            } else {
+                this.data = value;
+            }
+        });
     }
 
     createGame(cardsOut, hand, players) {
@@ -32,6 +41,9 @@ export class GameService {
     }
 
     getCardDeck() {
-        return JSON.parse(JSON.stringify(cardData));
+        this.data.people.sort();
+        this.data.rooms.sort();
+        this.data.weapons.sort();
+        return JSON.parse(JSON.stringify(this.data));
     }
 }

@@ -32,8 +32,8 @@ export class HomePage {
     }
   }
 
-  createBoard = (input) => {
-    let cards = this.gameService.getCardDeck();
+  createBoard = async (input) => {
+    let cards: any = await this.gameService.getCardDeck();
     const you = input.playerList.indexOf('You');
     this.players = input.playerList;
     this.deck.people = this.createGroup(cards.people, input.cardsOut, input.playerList.length, you, input.playerCards);

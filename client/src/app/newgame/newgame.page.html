@@ -35,19 +35,19 @@
             </ion-card-title>
         </ion-card-header>
         <ion-card-content>
-            <ion-item>
+            <ion-item *ngIf="cards">
                 <ion-label>Suspects</ion-label>
                 <ion-select [(ngModel)]="suspectCards" multiple="true" cancelText="Cancel" okText="Confirm">
                     <ion-select-option *ngFor="let card of cards.people">{{ card }}</ion-select-option>
                 </ion-select>
             </ion-item>
-            <ion-item>
+            <ion-item *ngIf="cards">
                 <ion-label>Rooms</ion-label>
                 <ion-select [(ngModel)]="roomCards" multiple="true" cancelText="Cancel" okText="Confirm">
                     <ion-select-option *ngFor="let card of cards.rooms">{{ card }}</ion-select-option>
                 </ion-select>
             </ion-item>
-            <ion-item>
+            <ion-item *ngIf="cards">
                 <ion-label>Weapons</ion-label>
                 <ion-select [(ngModel)]="weaponCards" multiple="true" cancelText="Cancel" okText="Confirm">
                     <ion-select-option *ngFor="let card of cards.weapons">{{ card }}</ion-select-option>
