@@ -17,6 +17,7 @@ import { HomePage } from './home/home.page';
 import { NewGamePage } from './newgame/newgame.page';
 import { OptionsModal } from './options/options.modal';
 import { PlayerComponent } from './player/player.component';
+import { CardService } from './shared/card.service';
 
 @NgModule({
   declarations: [AppComponent, CardComponent, EditComponent, HomePage, NewGamePage, OptionsModal, PlayerComponent],
@@ -24,8 +25,7 @@ import { PlayerComponent } from './player/player.component';
   imports: [BrowserModule, FormsModule, IonicModule.forRoot(), IonicStorageModule.forRoot({
     name: '_storage', driverOrder: [ 'localstorage' ]
   }), AppRoutingModule],
-  providers: [
-    GameService, SplashScreen, StatusBar
+  providers: [ CardService, GameService, SplashScreen, StatusBar
   ],
   bootstrap: [AppComponent]
 })

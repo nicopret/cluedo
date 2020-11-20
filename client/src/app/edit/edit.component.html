@@ -1,2 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="color: #020288; float: left; font-weight: bold; line-height: 48px;">
+      Edit card
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-form editor
+<ion-content [fullscreen]="true">
+  
+  <ion-card style="margin-bottom: 16px;">
+      <ion-card-header *ngIf="deck">
+          <ion-card-title>
+              Suspects
+          </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let person of deck.people; let i = index">
+            <ion-input type="text" [(ngModel)]="deck.people[i]"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+  </ion-card>
+
+  <ion-card style="margin-bottom: 16px;">
+    <ion-card-header *ngIf="deck">
+        <ion-card-title>
+            Locations
+        </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let room of deck.rooms; let i = index">
+          <ion-input type="text" [(ngModel)]="deck.rooms[i]"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="margin-bottom: 16px;">
+    <ion-card-header *ngIf="deck">
+        <ion-card-title>
+            Weapons
+        </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let weapon of deck.weapons; let i = index">
+          <ion-input type="text" [(ngModel)]="deck.weapons[i]"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <div style="margin: 8px;">
+    <ion-button color="success" expand="block" size="large" (click)="save()">Save</ion-button>
+    <ion-button color="danger" expand="block" fill="outline" size="large" (click)="cancel()">Cancel</ion-button>
+  </div>
+
+</ion-content>
+
+  <div *ngIf="deck">
+    <div *ngFor="let person of deck.people; let i = index">
+      <input type="text" [(ngModel)]="deck.people[i]">
+    </div>  
+  </div>
+  <button (click)="save()">save</button>

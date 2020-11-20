@@ -4,7 +4,6 @@ import { Subject } from 'rxjs';
 import { Storage } from '@ionic/storage';
 
 import cardData from '../../assets/data.json';
-
 @Injectable()
 export class GameService {
 

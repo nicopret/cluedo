@@ -4,7 +4,6 @@ import { GameService } from '../shared/game.services';
 
 import { NewGamePage } from '../newgame/newgame.page';
 import { OptionsModal } from '../options/options.modal';
-import { SlowBuffer } from 'buffer';
 
 @Component({
   selector: 'app-home',
