@@ -39,6 +39,11 @@ export class NewGamePage implements OnInit {
         });
     }
 
+    edit() {
+        this.cancel();
+        this.router.navigate([ 'edit' ]);
+    }
+
     ngOnInit() {
         this.cards = this.gameService.getCardDeck();
         this.cardsOut = this.cards.people.concat(this.cards.rooms, this.cards.weapons).sort();

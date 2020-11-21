@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomePage },
   {
     path: '',
-    redirectTo: '/edit',
+    redirectTo: '/home',
     pathMatch: 'full'
   }
 ];

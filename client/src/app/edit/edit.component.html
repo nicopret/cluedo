@@ -90,15 +90,8 @@
   </ion-card>
 
   <div style="margin: 8px;">
-    <ion-button color="success" expand="block" size="large" (click)="save()">Save</ion-button>
+    <ion-button color="success" expand="block" size="large" style="margin-bottom: 24px;" (click)="save()">Save</ion-button>
     <ion-button color="danger" expand="block" fill="outline" size="large" (click)="cancel()">Cancel</ion-button>
   </div>
 
 </ion-content>
-
-  <div *ngIf="deck">
-    <div *ngFor="let person of deck.people; let i = index">
-      <input type="text" [(ngModel)]="deck.people[i]">
-    </div>  
-  </div>
-  <button (click)="save()">save</button>

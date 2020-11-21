@@ -32,6 +32,7 @@
         <ion-card-header>
             <ion-card-title>
                 Your cards
+                <ion-icon style="float: right;" name="build-outline" (click)="edit()"></ion-icon>
             </ion-card-title>
         </ion-card-header>
         <ion-card-content>
@@ -69,6 +70,9 @@
         </ion-card-content>
     </ion-card>
 
-    <ion-button color="success" expand="block" (click)="createGame()">Create</ion-button>
-    <ion-button color="danger" expand="block" (click)="cancel()">Cancel</ion-button>
+    <div style="margin: 8px;">
+        <ion-button color="success" expand="block" size="large" style="margin-bottom: 24px;" (click)="createGame()">Create</ion-button>
+        <ion-button color="danger" expand="block" fill="outline" size="large" (click)="cancel()">Cancel</ion-button>
+    </div>
+
 </ion-content>
