@@ -15,11 +15,23 @@
           </ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-list>
-          <ion-item *ngFor="let person of deck.people; let i = index">
-            <ion-input type="text" [(ngModel)]="deck.people[i]"></ion-input>
-          </ion-item>
-        </ion-list>
+        <ion-row *ngFor="let control of suspects.controls; index as i">
+          <ion-input class="input" color="dark" type="text" [formControl]="suspects.controls[i]" ></ion-input>
+          <ion-button color="danger" fill="clear" (click)="removeSuspect(i)">X</ion-button>
+        </ion-row>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="11">
+              <ion-item>
+                <ion-label class="label" position="floating">Add suspect</ion-label>
+                <ion-input class="add-input" color="primary" type="text" [(ngModel)]="suspect" (keyup.enter)="addSuspect()"></ion-input>
+              </ion-item>  
+            </ion-col>
+            <ion-col size="1">
+              <ion-icon color="primary" name="add-outline" style="padding-top: 32px"  (click)="addSuspect()"></ion-icon>
+            </ion-col>
+          </ion-row>  
+        </ion-grid>
       </ion-card-content>
   </ion-card>
 
@@ -30,13 +42,25 @@
         </ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let room of deck.rooms; let i = index">
-          <ion-input type="text" [(ngModel)]="deck.rooms[i]"></ion-input>
-        </ion-item>
-      </ion-list>
+      <ion-row *ngFor="let control of rooms.controls; index as i">
+        <ion-input class="input" color="dark" type="text" [formControl]="rooms.controls[i]" ></ion-input>
+        <ion-button color="danger" fill="clear" (click)="removeRoom(i)">X</ion-button>
+      </ion-row>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="11">
+            <ion-item>
+              <ion-label class="label" position="floating">Add location</ion-label>
+              <ion-input class="add-input" color="primary" type="text" [(ngModel)]="room" (keyup.enter)="addRoom()"></ion-input>
+            </ion-item>  
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon color="primary" name="add-outline" style="padding-top: 32px"  (click)="addRoom()"></ion-icon>
+          </ion-col>
+        </ion-row>  
+      </ion-grid>
     </ion-card-content>
-  </ion-card>
+</ion-card>
 
   <ion-card style="margin-bottom: 16px;">
     <ion-card-header *ngIf="deck">
@@ -45,11 +69,23 @@
         </ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let weapon of deck.weapons; let i = index">
-          <ion-input type="text" [(ngModel)]="deck.weapons[i]"></ion-input>
-        </ion-item>
-      </ion-list>
+      <ion-row *ngFor="let control of weapons.controls; index as i">
+        <ion-input class="input" color="dark" type="text" [formControl]="weapons.controls[i]" ></ion-input>
+        <ion-button color="danger" fill="clear" (click)="removeWeapon(i)">X</ion-button>
+      </ion-row>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="11">
+            <ion-item>
+              <ion-label class="label" position="floating">Add weapon</ion-label>
+              <ion-input class="add-input" color="primary" type="text" [(ngModel)]="weapon" (keyup.enter)="addWeapon()"></ion-input>
+            </ion-item>  
+          </ion-col>
+          <ion-col size="1">
+            <ion-icon color="primary" name="add-outline" style="padding-top: 32px"  (click)="addWeapon()"></ion-icon>
+          </ion-col>
+        </ion-row>  
+      </ion-grid>
     </ion-card-content>
   </ion-card>
 

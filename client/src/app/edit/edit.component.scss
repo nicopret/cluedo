@@ -1,0 +1,25 @@
+
+ion-icon {
+    font-size: 32px;
+  }
+
+.add-input {
+    font-size: large;
+}
+
+.add-input:focus-within {
+    font-size: x-large;
+}
+
+.label {
+    font-size: x-large;
+}
+
+.input {
+    font-size: large;
+}
+
+.input:focus-within {
+    border-bottom: 3px solid blue !important;
+    font-size: x-large;
+}

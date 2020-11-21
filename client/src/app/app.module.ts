@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { IonicModule } from '@ionic/angular';
@@ -24,7 +24,7 @@ import { CardService } from './shared/card.service';
   entryComponents: [],
   imports: [BrowserModule, FormsModule, IonicModule.forRoot(), IonicStorageModule.forRoot({
     name: '_storage', driverOrder: [ 'localstorage' ]
-  }), AppRoutingModule],
+  }), AppRoutingModule, ReactiveFormsModule ],
   providers: [ CardService, GameService, SplashScreen, StatusBar
   ],
   bootstrap: [AppComponent]
