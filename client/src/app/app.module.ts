@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicModule } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
 
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -25,7 +26,7 @@ import { CardService } from './shared/card.service';
   imports: [BrowserModule, FormsModule, IonicModule.forRoot(), IonicStorageModule.forRoot({
     name: '_storage', driverOrder: [ 'localstorage' ]
   }), AppRoutingModule, ReactiveFormsModule ],
-  providers: [ CardService, GameService, SplashScreen, StatusBar
+  providers: [ CardService, GameService, GoogleAnalytics, SplashScreen, StatusBar
   ],
   bootstrap: [AppComponent]
 })

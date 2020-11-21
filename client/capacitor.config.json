@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "client",
+  "appId": "com.nicopretorius.cluedo",
+  "appName": "clueCard",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
